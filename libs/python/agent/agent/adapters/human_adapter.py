@@ -289,7 +289,6 @@ class HumanAdapter(CustomLLM):
         # Generate human response
         human_response_data = self._generate_response(messages, model)
 
-
         # Handle tool calls vs text response
         if "tool_calls" in human_response_data and human_response_data["tool_calls"]:
             # Stream tool calls as a single chunk

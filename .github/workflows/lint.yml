@@ -1,10 +1,14 @@
 name: Lint & Format Check
 
 on:
-  push:
-    branches: [test/*, chore/*]
   pull_request:
-    branches: [main, test/*, chore/*]
+    branches:
+      - test/*
+      - chore/*
+      - main
+  push:
+    branches:
+      - main
 
 jobs:
   lint:

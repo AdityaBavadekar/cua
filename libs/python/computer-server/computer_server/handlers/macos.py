@@ -478,7 +478,6 @@ class UIElement:
         }
 
 
-
 import Quartz
 
 
