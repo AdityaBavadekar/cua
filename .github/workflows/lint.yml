@@ -44,8 +44,8 @@ jobs:
 
       # TypeScript type check
       - name: TypeScript typecheck
-      - run: node ./scripts/typescript-typecheck.js
+        run: node ./scripts/typescript-typecheck.js
 
       # JS/TS/Markdown/YAML checks
       - name: Prettier check
-      - run: uv run prettier --check "**/*.{ts,tsx,js,jsx,json,md,yaml,yml}"
+        run: uv run prettier --check "**/*.{ts,tsx,js,jsx,json,md,yaml,yml}"
