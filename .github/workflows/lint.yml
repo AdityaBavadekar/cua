@@ -38,5 +38,8 @@ jobs:
       - run: uv run ruff check --ignore E501,E402 .
       - run: uv run mypy .
 
+      # TypeScript type check
+      - run: node ./scripts/typescript-typecheck.js
+
       # JS/TS/Markdown/YAML checks
       - run: uv run prettier --check "**/*.{ts,tsx,js,jsx,json,md,yaml,yml}"
