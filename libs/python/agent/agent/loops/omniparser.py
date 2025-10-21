@@ -4,16 +4,14 @@ Paper: https://arxiv.org/abs/2408.00203
 Code: https://github.com/microsoft/OmniParser
 """
 
-import asyncio
 import json
-from typing import Dict, List, Any, AsyncGenerator, Union, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple, Union
+
 import litellm
-import inspect
-import base64
 
 from ..decorators import register_agent
-from ..types import Messages, AgentResponse, Tools, AgentCapability
 from ..loops.base import AsyncAgentConfig
+from ..types import AgentCapability, Tools
 
 SOM_TOOL_SCHEMA = {
   "type": "function",
@@ -370,7 +368,7 @@ class OmniparserConfig(AsyncAgentConfig):
         llm_model = model.split('+')[-1]
         
         # Create system prompt for element ID prediction
-        SYSTEM_PROMPT = f'''
+        SYSTEM_PROMPT = '''
 You are an expert UI element locator. Given a GUI image annotated with numerical IDs over each interactable element, along with a user's element description, provide the ID of the specified element.
 
 The image shows UI elements with numbered overlays. Each number corresponds to a clickable/interactable element.

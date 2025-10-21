@@ -2,9 +2,7 @@
 
 import os
 import sys
-import signal
 from pathlib import Path
-from typing import Optional
 
 
 def load_env_file(path: Path) -> bool:

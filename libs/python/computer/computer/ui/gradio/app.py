@@ -4,26 +4,27 @@ Advanced Gradio UI for Computer Interface
 This is a Gradio interface for the Computer Interface
 """
 
-import gradio as gr
 import asyncio
+import base64
+import glob
+import hashlib
 import io
 import json
-import uuid
-import hashlib
 import os
-import glob
 import random
-import base64
+import random as rand
+import uuid
 from datetime import datetime
-from PIL import Image
-from huggingface_hub import DatasetCard, DatasetCardData
-from computer import Computer, VMProviderType
-from gradio.components import ChatMessage
+
+import datasets
+import gradio as gr
 import pandas as pd
 from datasets import Dataset, Features, Sequence, concatenate_datasets
-import datasets
+from gradio.components import ChatMessage
+from huggingface_hub import DatasetCard, DatasetCardData
+from PIL import Image
 
-import random as rand
+from computer import Computer, VMProviderType
 
 # Task examples as dictionaries with task string and setup function
 TASK_EXAMPLES = [
@@ -68,9 +69,10 @@ async def create_shopping_list_file(computer):
         
     return file_path
 
+
 # Load valid keys from the Key enum in models.py
 from computer.interface.models import Key
-import typing
+
 VALID_KEYS = [key.value for key in Key]  + [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
@@ -1436,7 +1438,7 @@ def create_gradio_ui():
                     return "OpenAI API key not found in environment", text_content
                 
                 from libs.agent.agent.providers.omni.clients.openai import OpenAIClient
-                
+
                 # Create a client - use gpt-4 if available, fall back to 3.5-turbo
                 model = "gpt-4.1-2025-04-14"
                 
