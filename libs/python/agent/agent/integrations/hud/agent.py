@@ -17,17 +17,16 @@ import io
 from pathlib import Path
 from typing import Any, ClassVar
 
+import hud
 import mcp.types as types
 from agent.agent import ComputerAgent as BaseComputerAgent
 from agent.callbacks.trajectory_saver import TrajectorySaverCallback
 from agent.computers import is_agent_computer
 from agent.responses import make_failed_tool_call_items
-from PIL import Image
-
-import hud
 from hud.agents import MCPAgent
 from hud.tools.computer.settings import computer_settings
 from hud.types import AgentResponse, MCPToolCall, MCPToolResult
+from PIL import Image
 
 
 class MCPComputerAgent(MCPAgent):

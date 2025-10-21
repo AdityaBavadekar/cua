@@ -14,30 +14,28 @@ from typing import Any, Dict, List, Optional, Tuple
 import AppKit
 import Foundation
 from AppKit import NSWorkspace  # type: ignore
-from ApplicationServices import (
-    AXUIElementCopyAttributeValue,  # type: ignore
-    AXUIElementCopyAttributeValues,  # type: ignore
-    AXUIElementCreateApplication,  # type: ignore
-    AXUIElementCreateSystemWide,  # type: ignore
-    AXUIElementGetTypeID,  # type: ignore
-    AXValueGetType,  # type: ignore
-    AXValueGetValue,  # type: ignore
-    kAXChildrenAttribute,  # type: ignore
-    kAXDescriptionAttribute,  # type: ignore
-    kAXEnabledAttribute,  # type: ignore
-    kAXErrorSuccess,  # type: ignore
-    kAXPositionAttribute,  # type: ignore
-    kAXRoleAttribute,  # type: ignore
-    kAXRoleDescriptionAttribute,  # type: ignore
-    kAXSizeAttribute,  # type: ignore
-    kAXTitleAttribute,  # type: ignore
-    kAXValueAttribute,  # type: ignore
-    kAXValueCFRangeType,  # type: ignore
-    kAXValueCGPointType,  # type: ignore
-    kAXValueCGSizeType,  # type: ignore
-    kAXVisibleChildrenAttribute,  # type: ignore
-    kAXWindowsAttribute,  # type: ignore
-)
+from ApplicationServices import AXUIElementCopyAttributeValue  # type: ignore
+from ApplicationServices import AXUIElementCopyAttributeValues  # type: ignore
+from ApplicationServices import AXUIElementCreateApplication  # type: ignore
+from ApplicationServices import AXUIElementCreateSystemWide  # type: ignore
+from ApplicationServices import AXUIElementGetTypeID  # type: ignore
+from ApplicationServices import AXValueGetType  # type: ignore
+from ApplicationServices import AXValueGetValue  # type: ignore
+from ApplicationServices import kAXChildrenAttribute  # type: ignore
+from ApplicationServices import kAXDescriptionAttribute  # type: ignore
+from ApplicationServices import kAXEnabledAttribute  # type: ignore
+from ApplicationServices import kAXErrorSuccess  # type: ignore
+from ApplicationServices import kAXPositionAttribute  # type: ignore
+from ApplicationServices import kAXRoleAttribute  # type: ignore
+from ApplicationServices import kAXRoleDescriptionAttribute  # type: ignore
+from ApplicationServices import kAXSizeAttribute  # type: ignore
+from ApplicationServices import kAXTitleAttribute  # type: ignore
+from ApplicationServices import kAXValueAttribute  # type: ignore
+from ApplicationServices import kAXValueCFRangeType  # type: ignore
+from ApplicationServices import kAXValueCGPointType  # type: ignore
+from ApplicationServices import kAXValueCGSizeType  # type: ignore
+from ApplicationServices import kAXVisibleChildrenAttribute  # type: ignore
+from ApplicationServices import kAXWindowsAttribute  # type: ignore
 from pynput.keyboard import Controller as KeyboardController
 from pynput.mouse import Button
 from pynput.mouse import Controller as MouseController
