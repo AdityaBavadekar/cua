@@ -4,9 +4,7 @@ import * as InterfaceExports from '../../src/interface/index.ts';
 describe('Interface Module Exports', () => {
   it('should export InterfaceFactory', () => {
     expect(InterfaceExports.InterfaceFactory).toBeDefined();
-    expect(
-      InterfaceExports.InterfaceFactory.createInterfaceForOS
-    ).toBeDefined();
+    expect(InterfaceExports.InterfaceFactory.createInterfaceForOS).toBeDefined();
   });
 
   it('should export BaseComputerInterface', () => {
@@ -31,7 +29,7 @@ describe('Interface Module Exports', () => {
       'BaseComputerInterface',
       'MacOSComputerInterface',
       'LinuxComputerInterface',
-      'WindowsComputerInterface',
+      'WindowsComputerInterface'
     ];
 
     const actualExports = Object.keys(InterfaceExports);

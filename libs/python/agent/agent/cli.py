@@ -344,8 +344,9 @@ Examples:
 
     # Import here to avoid import errors if dependencies are missing
     try:
-        from agent import ComputerAgent
         from computer import Computer
+
+        from agent import ComputerAgent
     except ImportError as e:
         print_colored(f"❌ Import error: {e}", Colors.RED, bold=True)
         print_colored("Make sure agent and computer libraries are installed.", Colors.YELLOW)

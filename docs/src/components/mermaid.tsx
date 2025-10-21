@@ -30,7 +30,7 @@ export function Mermaid({ chart }: { chart: string }) {
 
         const { svg, bindFunctions } = await mermaid.render(
           id,
-          chart.replaceAll('\\n', '\n'),
+          chart.replaceAll('\\n', '\n')
         );
 
         bindFunctions?.(container);

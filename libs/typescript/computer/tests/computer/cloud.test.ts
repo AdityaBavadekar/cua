@@ -7,7 +7,7 @@ describe('Computer Cloud', () => {
     const cloud = new Computer({
       apiKey: 'asdf',
       name: 's-linux-1234',
-      osType: OSType.LINUX,
+      osType: OSType.LINUX
     });
     expect(cloud).toBeInstanceOf(Computer);
   });

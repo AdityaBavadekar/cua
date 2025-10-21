@@ -34,7 +34,7 @@ interface IOUProps {
 }
 
 /**
- * A React component that visualizes and calculates the Intersection over Union (IOU) 
+ * A React component that visualizes and calculates the Intersection over Union (IOU)
  * of two rectangles on a canvas
  * @param props - The component props
  * @returns The rendered IOU visualization component

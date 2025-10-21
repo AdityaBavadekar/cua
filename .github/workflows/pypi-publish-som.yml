@@ -3,22 +3,22 @@ name: Publish SOM Package
 on:
   push:
     tags:
-      - "som-v*"
+      - 'som-v*'
   workflow_dispatch:
     inputs:
       version:
-        description: "Version to publish (without v prefix)"
+        description: 'Version to publish (without v prefix)'
         required: true
-        default: "0.1.0"
+        default: '0.1.0'
   workflow_call:
     inputs:
       version:
-        description: "Version to publish"
+        description: 'Version to publish'
         required: true
         type: string
     outputs:
       version:
-        description: "The version that was published"
+        description: 'The version that was published'
         value: ${{ jobs.determine-version.outputs.version }}
 
 # Adding permissions at workflow level
@@ -58,10 +58,10 @@ jobs:
     needs: determine-version
     uses: ./.github/workflows/pypi-reusable-publish.yml
     with:
-      package_name: "som"
-      package_dir: "libs/python/som"
+      package_name: 'som'
+      package_dir: 'libs/python/som'
       version: ${{ needs.determine-version.outputs.version }}
       is_lume_package: false
-      base_package_name: "cua-som"
+      base_package_name: 'cua-som'
     secrets:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}

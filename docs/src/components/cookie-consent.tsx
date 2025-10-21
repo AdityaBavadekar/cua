@@ -30,7 +30,8 @@ export function CookieConsent() {
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-fd-background border-t border-fd-border shadow-lg">
       <div className="container mx-auto px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="text-xs text-fd-muted-foreground">
-          This site uses cookies for website functionality, analytics, and personalized content.
+          This site uses cookies for website functionality, analytics, and
+          personalized content.
         </p>
         <button
           onClick={handleAccept}

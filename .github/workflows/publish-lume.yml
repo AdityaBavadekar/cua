@@ -3,17 +3,17 @@ name: Publish Notarized Lume
 on:
   push:
     tags:
-      - "lume-v*"
+      - 'lume-v*'
   workflow_dispatch:
     inputs:
       version:
-        description: "Version to notarize (without v prefix)"
+        description: 'Version to notarize (without v prefix)'
         required: true
-        default: "0.1.0"
+        default: '0.1.0'
   workflow_call:
     inputs:
       version:
-        description: "Version to notarize"
+        description: 'Version to notarize'
         required: true
         type: string
     secrets:
@@ -95,7 +95,7 @@ jobs:
           APPLICATION_CERT_BASE64: ${{ secrets.APPLICATION_CERT_BASE64 }}
           INSTALLER_CERT_BASE64: ${{ secrets.INSTALLER_CERT_BASE64 }}
           CERT_PASSWORD: ${{ secrets.CERT_PASSWORD }}
-          KEYCHAIN_PASSWORD: "temp_password"
+          KEYCHAIN_PASSWORD: 'temp_password'
         run: |
           # Create a temporary keychain
           security create-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
@@ -144,8 +144,8 @@ jobs:
           TEAM_ID: ${{ secrets.TEAM_ID }}
           APP_SPECIFIC_PASSWORD: ${{ secrets.APP_SPECIFIC_PASSWORD }}
           # These will now reference the imported certificates
-          CERT_APPLICATION_NAME: "Developer ID Application: ${{ secrets.DEVELOPER_NAME }} (${{ secrets.TEAM_ID }})"
-          CERT_INSTALLER_NAME: "Developer ID Installer: ${{ secrets.DEVELOPER_NAME }} (${{ secrets.TEAM_ID }})"
+          CERT_APPLICATION_NAME: 'Developer ID Application: ${{ secrets.DEVELOPER_NAME }} (${{ secrets.TEAM_ID }})'
+          CERT_INSTALLER_NAME: 'Developer ID Installer: ${{ secrets.DEVELOPER_NAME }} (${{ secrets.TEAM_ID }})'
           VERSION: ${{ steps.set_version.outputs.version }}
         working-directory: ./libs/lume
         run: |

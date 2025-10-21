@@ -8,6 +8,13 @@ repos:
         language: node
         files: \.(ts|tsx|js|jsx|json|md|yaml|yml)$
 
+  - repo: local
+    hooks:
+      - id: tsc
+        name: TypeScript type check
+        entry: node ./scripts/typescript-typecheck.js
+        language: node
+
   - repo: https://github.com/PyCQA/isort
     rev: 7.0.0
     hooks:

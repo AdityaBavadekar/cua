@@ -1,7 +1,7 @@
 export enum OSType {
   MACOS = 'macos',
   WINDOWS = 'windows',
-  LINUX = 'linux',
+  LINUX = 'linux'
 }
 
 export interface ScreenSize {

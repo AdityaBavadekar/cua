@@ -25,5 +25,5 @@ export type {
   WaitAction,
   Usage,
   ConnectionType,
-  AgentClientOptions,
+  AgentClientOptions
 } from './types';

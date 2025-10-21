@@ -25,9 +25,10 @@ import platform
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+from computer import Computer
+
 # Import from agent package
 from agent import ComputerAgent
-from computer import Computer
 
 # Global variables
 global_agent = None

@@ -7,13 +7,16 @@ export async function GET(
   const { path } = await params;
   const url = new URL(request.url);
 
-  const targetUrl = `${process.env.NEXT_PUBLIC_POSTHOG_HOST}/${path.join('/')}${url.search}`;
+  const targetUrl = `${process.env.NEXT_PUBLIC_POSTHOG_HOST}/${path.join('/')}${
+    url.search
+  }`;
 
   try {
     const response = await fetch(targetUrl, {
       method: 'GET',
       headers: {
-        'Content-Type': request.headers.get('Content-Type') || 'application/json',
+        'Content-Type':
+          request.headers.get('Content-Type') || 'application/json',
       },
     });
 
@@ -26,7 +29,8 @@ export async function GET(
     return new NextResponse(data, {
       status: response.status,
       headers: {
-        'Content-Type': response.headers.get('Content-Type') || 'application/json',
+        'Content-Type':
+          response.headers.get('Content-Type') || 'application/json',
       },
     });
   } catch (error) {
@@ -42,11 +46,15 @@ export async function POST(
   const { path } = await params;
   const url = new URL(request.url);
 
-  const targetUrl = `${process.env.NEXT_PUBLIC_POSTHOG_HOST}/${path.join('/')}${url.search}`;
+  const targetUrl = `${process.env.NEXT_PUBLIC_POSTHOG_HOST}/${path.join('/')}${
+    url.search
+  }`;
 
   try {
     const body = await request.arrayBuffer();
-    const contentType = request.headers.get('Content-Type') || 'application/x-www-form-urlencoded';
+    const contentType =
+      request.headers.get('Content-Type') ||
+      'application/x-www-form-urlencoded';
 
     const response = await fetch(targetUrl, {
       method: 'POST',
@@ -65,7 +73,8 @@ export async function POST(
     return new NextResponse(data, {
       status: response.status,
       headers: {
-        'Content-Type': response.headers.get('Content-Type') || 'application/json',
+        'Content-Type':
+          response.headers.get('Content-Type') || 'application/json',
       },
     });
   } catch (error) {

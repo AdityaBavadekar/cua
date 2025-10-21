@@ -3,17 +3,17 @@ name: Publish Core Package
 on:
   push:
     tags:
-      - "core-v*"
+      - 'core-v*'
   workflow_dispatch:
     inputs:
       version:
-        description: "Version to publish (without v prefix)"
+        description: 'Version to publish (without v prefix)'
         required: true
-        default: "0.1.0"
+        default: '0.1.0'
   workflow_call:
     inputs:
       version:
-        description: "Version to publish"
+        description: 'Version to publish'
         required: true
         type: string
 
@@ -54,10 +54,10 @@ jobs:
     needs: prepare
     uses: ./.github/workflows/pypi-reusable-publish.yml
     with:
-      package_name: "core"
-      package_dir: "libs/python/core"
+      package_name: 'core'
+      package_dir: 'libs/python/core'
       version: ${{ needs.prepare.outputs.version }}
       is_lume_package: false
-      base_package_name: "cua-core"
+      base_package_name: 'cua-core'
     secrets:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}

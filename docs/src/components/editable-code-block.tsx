@@ -12,7 +12,9 @@ interface EditableCodeContextValue {
   updateValue: (key: string, value: string) => void;
 }
 
-const EditableCodeContext = createContext<EditableCodeContextValue | null>(null);
+const EditableCodeContext = createContext<EditableCodeContextValue | null>(
+  null
+);
 
 /**
  * Hook to access the editable code context
@@ -55,14 +57,17 @@ export function EditableCodeBlock({
   const [values, setValues] = useState<Record<string, string>>(defaultValues);
 
   const updateValue = (key: string, value: string) => {
-    setValues(prev => ({ ...prev, [key]: value }));
+    setValues((prev) => ({ ...prev, [key]: value }));
   };
 
   return (
     <EditableCodeContext.Provider value={{ values, updateValue }}>
       <Base.CodeBlock title={title} className={cn('my-4', className)}>
-        <Base.Pre className={cn(`language-${lang}`, "px-3")}>
-          <code className={cn(`language-${lang}`)} style={{ display: 'block', whiteSpace: 'pre-wrap' }}>
+        <Base.Pre className={cn(`language-${lang}`, 'px-3')}>
+          <code
+            className={cn(`language-${lang}`)}
+            style={{ display: 'block', whiteSpace: 'pre-wrap' }}
+          >
             {children}
           </code>
         </Base.Pre>
@@ -103,7 +108,10 @@ export function EditableValue({
   const [measuredWidth, setMeasuredWidth] = React.useState(0);
   const [placeholderWidth, setPlaceholderWidth] = React.useState(0);
   const [isHovered, setIsHovered] = React.useState(false);
-  const [tooltipPosition, setTooltipPosition] = React.useState({ top: 0, left: 0 });
+  const [tooltipPosition, setTooltipPosition] = React.useState({
+    top: 0,
+    left: 0,
+  });
   const [isVisible, setIsVisible] = React.useState(false);
 
   // Observe visibility changes to trigger remeasurement
@@ -219,9 +227,7 @@ export function EditableValue({
         value={value}
         onChange={(e) => updateValue(placeholder, e.target.value)}
         placeholder={placeholder}
-        className={cn(
-          type === 'password' && value && 'text-security-disc'
-        )}
+        className={cn(type === 'password' && value && 'text-security-disc')}
         style={{
           display: 'inline',
           width: inputWidth,

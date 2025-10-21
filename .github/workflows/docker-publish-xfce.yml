@@ -5,16 +5,16 @@ on:
     branches:
       - main
     tags:
-      - "docker-xfce-v*.*.*"
+      - 'docker-xfce-v*.*.*'
     paths:
-      - "libs/xfce/**"
-      - ".github/workflows/docker-publish-xfce.yml"
-      - ".github/workflows/docker-reusable-publish.yml"
+      - 'libs/xfce/**'
+      - '.github/workflows/docker-publish-xfce.yml'
+      - '.github/workflows/docker-reusable-publish.yml'
   pull_request:
     paths:
-      - "libs/xfce/**"
-      - ".github/workflows/docker-publish-xfce.yml"
-      - ".github/workflows/docker-reusable-publish.yml"
+      - 'libs/xfce/**'
+      - '.github/workflows/docker-publish-xfce.yml'
+      - '.github/workflows/docker-reusable-publish.yml'
 
 jobs:
   publish:

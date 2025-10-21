@@ -5,6 +5,6 @@ export default defineConfig([
     entry: ['./src/index.ts'],
     platform: 'node',
     dts: true,
-    external: ['child_process', 'util'],
-  },
+    external: ['child_process', 'util']
+  }
 ]);

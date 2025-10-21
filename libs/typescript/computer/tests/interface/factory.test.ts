@@ -11,7 +11,7 @@ describe('InterfaceFactory', () => {
     username: 'testuser',
     password: 'testpass',
     apiKey: 'test-api-key',
-    vmName: 'test-vm',
+    vmName: 'test-vm'
   };
 
   describe('createInterfaceForOS', () => {
@@ -60,10 +60,7 @@ describe('InterfaceFactory', () => {
     });
 
     it('should create interface without API key and VM name', () => {
-      const interface_ = InterfaceFactory.createInterfaceForOS(
-        OSType.MACOS,
-        testParams.ipAddress
-      );
+      const interface_ = InterfaceFactory.createInterfaceForOS(OSType.MACOS, testParams.ipAddress);
 
       expect(interface_).toBeInstanceOf(MacOSComputerInterface);
     });

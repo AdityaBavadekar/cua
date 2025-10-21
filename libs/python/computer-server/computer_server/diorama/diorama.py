@@ -5,6 +5,8 @@ import asyncio
 import logging
 from typing import Union
 
+from PIL import Image, ImageDraw
+
 from computer_server.diorama.diorama_computer import DioramaComputer
 from computer_server.diorama.draw import (
     AppActivationContext,
@@ -14,7 +16,6 @@ from computer_server.diorama.draw import (
     get_running_apps,
 )
 from computer_server.handlers.macos import *
-from PIL import Image, ImageDraw
 
 # simple, nicely formatted logging
 logger = logging.getLogger(__name__)

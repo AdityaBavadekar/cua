@@ -8,7 +8,7 @@ describe('WindowsComputerInterface', () => {
     username: 'testuser',
     password: 'testpass',
     apiKey: 'test-api-key',
-    vmName: 'test-vm',
+    vmName: 'test-vm'
   };
 
   describe('Inheritance', () => {

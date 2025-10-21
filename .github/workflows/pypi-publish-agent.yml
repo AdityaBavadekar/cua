@@ -3,17 +3,17 @@ name: Publish Agent Package
 on:
   push:
     tags:
-      - "agent-v*"
+      - 'agent-v*'
   workflow_dispatch:
     inputs:
       version:
-        description: "Version to publish (without v prefix)"
+        description: 'Version to publish (without v prefix)'
         required: true
-        default: "0.1.0"
+        default: '0.1.0'
   workflow_call:
     inputs:
       version:
-        description: "Version to publish"
+        description: 'Version to publish'
         required: true
         type: string
 
@@ -56,7 +56,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Update dependencies to latest versions
         id: update-deps
@@ -143,11 +143,11 @@ jobs:
     needs: prepare
     uses: ./.github/workflows/pypi-reusable-publish.yml
     with:
-      package_name: "agent"
-      package_dir: "libs/python/agent"
+      package_name: 'agent'
+      package_dir: 'libs/python/agent'
       version: ${{ needs.prepare.outputs.version }}
       is_lume_package: false
-      base_package_name: "cua-agent"
+      base_package_name: 'cua-agent'
     secrets:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
 

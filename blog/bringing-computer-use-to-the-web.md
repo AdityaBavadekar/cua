@@ -1,6 +1,6 @@
 # Bringing Computer-Use to the Web
 
-*Published on August 5, 2025 by Morgan Dean*
+_Published on August 5, 2025 by Morgan Dean_
 
 In one of our original posts, we explored building Computer-Use Operators on macOS - first with a [manual implementation](build-your-own-operator-on-macos-1.md) using OpenAI's `computer-use-preview` model, then with our [cua-agent framework](build-your-own-operator-on-macos-2.md) for Python developers. While these tutorials have been incredibly popular, we've received consistent feedback from our community: **"Can we use Cua with JavaScript and TypeScript?"**
 
@@ -78,8 +78,8 @@ const res = await openai.responses.create({
       type: 'computer_use_preview',
       display_width: 1024,
       display_height: 768,
-      environment: 'linux', // we're using a linux container
-    },
+      environment: 'linux' // we're using a linux container
+    }
   ],
   input: [
     {
@@ -91,10 +91,10 @@ const res = await openai.responses.create({
         {
           type: 'input_image',
           image_url: `data:image/png;base64,${screenshotBase64}`,
-          detail: 'auto',
-        },
-      ],
-    },
+          detail: 'auto'
+        }
+      ]
+    }
   ],
   truncation: 'auto'
 });
@@ -144,30 +144,30 @@ Each response contains:
 
 ### Provision a Cua Cloud Container
 
-  1. Visit [trycua.com](https://trycua.com), sign up, purchase [credits](https://trycua.com/pricing), and create a new container instance from the [dashboard](https://trycua.com/dashboard).
-  2. Create an API key from the dashboard — be sure to save it in a secure location before continuing.
-  3. Start the cloud container from the dashboard.
+1. Visit [trycua.com](https://trycua.com), sign up, purchase [credits](https://trycua.com/pricing), and create a new container instance from the [dashboard](https://trycua.com/dashboard).
+2. Create an API key from the dashboard — be sure to save it in a secure location before continuing.
+3. Start the cloud container from the dashboard.
 
 ### Environment Setup
 
-  1. Install required packages with your preferred package manager:
+1. Install required packages with your preferred package manager:
 
-      ```bash
-      npm install --save @trycua/computer # or yarn, pnpm, bun
-      npm install --save openai # or yarn, pnpm, bun
-      ```
+   ```bash
+   npm install --save @trycua/computer # or yarn, pnpm, bun
+   npm install --save openai # or yarn, pnpm, bun
+   ```
 
-      Works with any JavaScript/TypeScript project setup - whether you're using Create React App, Next.js, Vue, Angular, or plain JavaScript.
+   Works with any JavaScript/TypeScript project setup - whether you're using Create React App, Next.js, Vue, Angular, or plain JavaScript.
 
-  2. Save your OpenAI API key, Cua API key, and container name to a `.env` file:
+2. Save your OpenAI API key, Cua API key, and container name to a `.env` file:
 
-      ```bash
-      OPENAI_API_KEY=openai-api-key
-      CUA_API_KEY=cua-api-key
-      CUA_CONTAINER_NAME=cua-cloud-container-name
-      ```
+   ```bash
+   OPENAI_API_KEY=openai-api-key
+   CUA_API_KEY=cua-api-key
+   CUA_CONTAINER_NAME=cua-cloud-container-name
+   ```
 
-      These environment variables work the same whether you're using vanilla JavaScript, TypeScript, or any web framework.
+   These environment variables work the same whether you're using vanilla JavaScript, TypeScript, or any web framework.
 
 ## Building the Agent
 

@@ -1,4 +1,4 @@
 packages:
-  - "computer"
-  - "core"
-  - "agent"
+  - 'computer'
+  - 'core'
+  - 'agent'

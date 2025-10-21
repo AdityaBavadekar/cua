@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./libs/typescript/core" },
+    { "path": "./libs/typescript/computer" },
+    { "path": "./libs/typescript/agent" }
+  ]
+}

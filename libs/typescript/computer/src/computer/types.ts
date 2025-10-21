@@ -32,5 +32,5 @@ export interface CloudComputerConfig extends BaseComputerConfig {
 }
 
 export enum VMProviderType {
-  CLOUD = 'cloud',
+  CLOUD = 'cloud'
 }

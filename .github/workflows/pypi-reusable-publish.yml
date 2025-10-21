@@ -4,28 +4,28 @@ on:
   workflow_call:
     inputs:
       package_name:
-        description: "Name of the package (e.g. pylume, computer, agent)"
+        description: 'Name of the package (e.g. pylume, computer, agent)'
         required: true
         type: string
       package_dir:
-        description: "Directory containing the package relative to workspace root (e.g. libs/python/pylume)"
+        description: 'Directory containing the package relative to workspace root (e.g. libs/python/pylume)'
         required: true
         type: string
       version:
-        description: "Version to publish"
+        description: 'Version to publish'
         required: true
         type: string
       is_lume_package:
-        description: "Whether this package includes the lume binary"
+        description: 'Whether this package includes the lume binary'
         required: false
         type: boolean
         default: false
       base_package_name:
-        description: "PyPI package name (e.g. pylume, cua-agent)"
+        description: 'PyPI package name (e.g. pylume, cua-agent)'
         required: true
         type: string
       make_latest:
-        description: "Whether to mark this release as latest (should only be true for lume)"
+        description: 'Whether to mark this release as latest (should only be true for lume)'
         required: false
         type: boolean
         default: false
@@ -34,7 +34,7 @@ on:
         required: true
     outputs:
       version:
-        description: "The version that was published"
+        description: 'The version that was published'
         value: ${{ jobs.build-and-publish.outputs.version }}
 
 jobs:
@@ -52,7 +52,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Create root pdm.lock file
         run: |
@@ -62,7 +62,7 @@ jobs:
       - name: Install PDM
         uses: pdm-project/setup-pdm@v3
         with:
-          python-version: "3.11"
+          python-version: '3.11'
           cache: true
 
       - name: Set version
@@ -265,7 +265,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          name: "${{ inputs.base_package_name }} v${{ env.VERSION }}"
+          name: '${{ inputs.base_package_name }} v${{ env.VERSION }}'
           body_path: release_notes.md
           files: ${{ inputs.package_dir }}/${{ env.WHEEL_FILE }}
           draft: false

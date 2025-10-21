@@ -3,22 +3,22 @@ name: Publish MCP Server Package
 on:
   push:
     tags:
-      - "mcp-server-v*"
+      - 'mcp-server-v*'
   workflow_dispatch:
     inputs:
       version:
-        description: "Version to publish (without v prefix)"
+        description: 'Version to publish (without v prefix)'
         required: true
-        default: "0.1.0"
+        default: '0.1.0'
   workflow_call:
     inputs:
       version:
-        description: "Version to publish"
+        description: 'Version to publish'
         required: true
         type: string
     outputs:
       version:
-        description: "The version that was published"
+        description: 'The version that was published'
         value: ${{ jobs.prepare.outputs.version }}
 
 # Adding permissions at workflow level
@@ -59,7 +59,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Update dependencies to latest versions
         id: update-deps
@@ -139,11 +139,11 @@ jobs:
     needs: prepare
     uses: ./.github/workflows/pypi-reusable-publish.yml
     with:
-      package_name: "mcp-server"
-      package_dir: "libs/python/mcp-server"
+      package_name: 'mcp-server'
+      package_dir: 'libs/python/mcp-server'
       version: ${{ needs.prepare.outputs.version }}
       is_lume_package: false
-      base_package_name: "cua-mcp-server"
+      base_package_name: 'cua-mcp-server'
     secrets:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
 

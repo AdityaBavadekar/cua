@@ -18,13 +18,11 @@ from openai.types.responses.response_computer_tool_call_param import (
     ActionMove,
     ActionScreenshot,
     ActionScroll,
+    ActionWait,
+    ResponseComputerToolCallParam,
 )
 from openai.types.responses.response_computer_tool_call_param import (
     ActionType as ActionTypeAction,
-)
-from openai.types.responses.response_computer_tool_call_param import (
-    ActionWait,
-    ResponseComputerToolCallParam,
 )
 from openai.types.responses.response_function_tool_call_param import (
     ResponseFunctionToolCallParam,

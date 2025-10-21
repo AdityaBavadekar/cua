@@ -3,22 +3,22 @@ name: Publish Pylume Package
 on:
   push:
     tags:
-      - "pylume-v*"
+      - 'pylume-v*'
   workflow_dispatch:
     inputs:
       version:
-        description: "Version to publish (without v prefix)"
+        description: 'Version to publish (without v prefix)'
         required: true
-        default: "0.1.0"
+        default: '0.1.0'
   workflow_call:
     inputs:
       version:
-        description: "Version to publish"
+        description: 'Version to publish'
         required: true
         type: string
     outputs:
       version:
-        description: "The version that was published"
+        description: 'The version that was published'
         value: ${{ jobs.determine-version.outputs.version }}
 
 # Adding permissions at workflow level
@@ -73,10 +73,10 @@ jobs:
     needs: determine-version
     uses: ./.github/workflows/pypi-reusable-publish.yml
     with:
-      package_name: "pylume"
-      package_dir: "libs/python/pylume"
+      package_name: 'pylume'
+      package_dir: 'libs/python/pylume'
       version: ${{ needs.determine-version.outputs.version }}
       is_lume_package: true
-      base_package_name: "pylume"
+      base_package_name: 'pylume'
     secrets:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}

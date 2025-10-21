@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import posthog
+
 from core import __version__
 
 logger = logging.getLogger("core.telemetry")

@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING
 
 # For type checking only
 if TYPE_CHECKING:
-    from computer_api import Server
+    pass
 
 # Setup logging
 logging.basicConfig(

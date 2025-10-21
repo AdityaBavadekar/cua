@@ -4,27 +4,27 @@ on:
   workflow_call:
     inputs:
       image_name:
-        description: "Name of the Docker image (e.g. cua-ubuntu, cua-xfce)"
+        description: 'Name of the Docker image (e.g. cua-ubuntu, cua-xfce)'
         required: true
         type: string
       context_dir:
-        description: "Directory containing the Dockerfile relative to workspace root (e.g. libs/kasm, libs/xfce)"
+        description: 'Directory containing the Dockerfile relative to workspace root (e.g. libs/kasm, libs/xfce)'
         required: true
         type: string
       dockerfile_path:
-        description: "Path to Dockerfile relative to context_dir (e.g. Dockerfile)"
+        description: 'Path to Dockerfile relative to context_dir (e.g. Dockerfile)'
         required: false
         type: string
-        default: "Dockerfile"
+        default: 'Dockerfile'
       tag_prefix:
-        description: "Prefix for semantic version tags (e.g. docker-kasm-v, docker-xfce-v)"
+        description: 'Prefix for semantic version tags (e.g. docker-kasm-v, docker-xfce-v)'
         required: true
         type: string
       docker_hub_org:
-        description: "Docker Hub organization name"
+        description: 'Docker Hub organization name'
         required: false
         type: string
-        default: "trycua"
+        default: 'trycua'
     secrets:
       DOCKER_HUB_TOKEN:
         required: true

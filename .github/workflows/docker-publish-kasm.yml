@@ -5,16 +5,16 @@ on:
     branches:
       - main
     tags:
-      - "docker-kasm-v*.*.*"
+      - 'docker-kasm-v*.*.*'
     paths:
-      - "libs/kasm/**"
-      - ".github/workflows/docker-publish-kasm.yml"
-      - ".github/workflows/docker-reusable-publish.yml"
+      - 'libs/kasm/**'
+      - '.github/workflows/docker-publish-kasm.yml'
+      - '.github/workflows/docker-reusable-publish.yml'
   pull_request:
     paths:
-      - "libs/kasm/**"
-      - ".github/workflows/docker-publish-kasm.yml"
-      - ".github/workflows/docker-reusable-publish.yml"
+      - 'libs/kasm/**'
+      - '.github/workflows/docker-publish-kasm.yml'
+      - '.github/workflows/docker-reusable-publish.yml'
 
 jobs:
   publish:

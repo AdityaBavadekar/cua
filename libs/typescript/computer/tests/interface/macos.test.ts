@@ -9,7 +9,7 @@ describe('MacOSComputerInterface', () => {
     username: 'testuser',
     password: 'testpass',
     // apiKey: "test-api-key", No API Key for local testing
-    vmName: 'test-vm',
+    vmName: 'test-vm'
   };
 
   // WebSocket server mock
@@ -51,10 +51,8 @@ describe('MacOSComputerInterface', () => {
             case 'screenshot':
               ws.send(
                 JSON.stringify({
-                  image_data: Buffer.from('fake-screenshot-data').toString(
-                    'base64'
-                  ),
-                  success: true,
+                  image_data: Buffer.from('fake-screenshot-data').toString('base64'),
+                  success: true
                 })
               );
               break;
@@ -62,7 +60,7 @@ describe('MacOSComputerInterface', () => {
               ws.send(
                 JSON.stringify({
                   size: { width: 1920, height: 1080 },
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -70,7 +68,7 @@ describe('MacOSComputerInterface', () => {
               ws.send(
                 JSON.stringify({
                   position: { x: 100, y: 200 },
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -78,7 +76,7 @@ describe('MacOSComputerInterface', () => {
               ws.send(
                 JSON.stringify({
                   content: 'clipboard content',
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -86,7 +84,7 @@ describe('MacOSComputerInterface', () => {
               ws.send(
                 JSON.stringify({
                   exists: true,
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -94,7 +92,7 @@ describe('MacOSComputerInterface', () => {
               ws.send(
                 JSON.stringify({
                   exists: true,
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -102,7 +100,7 @@ describe('MacOSComputerInterface', () => {
               ws.send(
                 JSON.stringify({
                   files: ['file1.txt', 'file2.txt'],
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -110,7 +108,7 @@ describe('MacOSComputerInterface', () => {
               ws.send(
                 JSON.stringify({
                   content: 'file content',
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -118,7 +116,7 @@ describe('MacOSComputerInterface', () => {
               ws.send(
                 JSON.stringify({
                   content_b64: Buffer.from('binary content').toString('base64'),
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -127,7 +125,7 @@ describe('MacOSComputerInterface', () => {
                 JSON.stringify({
                   stdout: 'command output',
                   stderr: '',
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -138,7 +136,7 @@ describe('MacOSComputerInterface', () => {
                   title: 'Test Window',
                   bounds: { x: 0, y: 0, width: 1920, height: 1080 },
                   children: [],
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -147,7 +145,7 @@ describe('MacOSComputerInterface', () => {
               ws.send(
                 JSON.stringify({
                   coordinates: [message.params?.x || 0, message.params?.y || 0],
-                  success: true,
+                  success: true
                 })
               );
               break;
@@ -259,8 +257,8 @@ describe('MacOSComputerInterface', () => {
         params: {
           x: 100,
           y: 200,
-          button: 'left',
-        },
+          button: 'left'
+        }
       });
     });
 
@@ -273,8 +271,8 @@ describe('MacOSComputerInterface', () => {
         params: {
           x: 100,
           y: 200,
-          button: 'right',
-        },
+          button: 'right'
+        }
       });
     });
 
@@ -286,8 +284,8 @@ describe('MacOSComputerInterface', () => {
         command: 'left_click',
         params: {
           x: 150,
-          y: 250,
-        },
+          y: 250
+        }
       });
     });
 
@@ -299,8 +297,8 @@ describe('MacOSComputerInterface', () => {
         command: 'right_click',
         params: {
           x: 200,
-          y: 300,
-        },
+          y: 300
+        }
       });
     });
 
@@ -312,8 +310,8 @@ describe('MacOSComputerInterface', () => {
         command: 'double_click',
         params: {
           x: 250,
-          y: 350,
-        },
+          y: 350
+        }
       });
     });
 
@@ -325,8 +323,8 @@ describe('MacOSComputerInterface', () => {
         command: 'move_cursor',
         params: {
           x: 300,
-          y: 400,
-        },
+          y: 400
+        }
       });
     });
 
@@ -340,8 +338,8 @@ describe('MacOSComputerInterface', () => {
           x: 400,
           y: 500,
           button: 'left',
-          duration: 1.5,
-        },
+          duration: 1.5
+        }
       });
     });
 
@@ -349,7 +347,7 @@ describe('MacOSComputerInterface', () => {
       const path: Array<[number, number]> = [
         [100, 100],
         [200, 200],
-        [300, 300],
+        [300, 300]
       ];
       await macosInterface.drag(path, 'middle', 2.0);
 
@@ -359,8 +357,8 @@ describe('MacOSComputerInterface', () => {
         params: {
           path: path,
           button: 'middle',
-          duration: 2.0,
-        },
+          duration: 2.0
+        }
       });
     });
   });
@@ -392,8 +390,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'key_down',
         params: {
-          key: 'a',
-        },
+          key: 'a'
+        }
       });
     });
 
@@ -404,8 +402,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'key_up',
         params: {
-          key: 'b',
-        },
+          key: 'b'
+        }
       });
     });
 
@@ -416,8 +414,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'type_text',
         params: {
-          text: 'Hello, World!',
-        },
+          text: 'Hello, World!'
+        }
       });
     });
 
@@ -428,8 +426,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'press_key',
         params: {
-          key: 'enter',
-        },
+          key: 'enter'
+        }
       });
     });
 
@@ -440,8 +438,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'hotkey',
         params: {
-          keys: ['cmd', 'c'],
-        },
+          keys: ['cmd', 'c']
+        }
       });
     });
   });
@@ -474,8 +472,8 @@ describe('MacOSComputerInterface', () => {
         command: 'scroll',
         params: {
           x: 10,
-          y: -5,
-        },
+          y: -5
+        }
       });
     });
 
@@ -486,8 +484,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'scroll_down',
         params: {
-          clicks: 3,
-        },
+          clicks: 3
+        }
       });
     });
 
@@ -498,8 +496,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'scroll_up',
         params: {
-          clicks: 2,
-        },
+          clicks: 2
+        }
       });
     });
   });
@@ -533,7 +531,7 @@ describe('MacOSComputerInterface', () => {
       const lastMessage = receivedMessages[receivedMessages.length - 1];
       expect(lastMessage).toEqual({
         command: 'screenshot',
-        params: {},
+        params: {}
       });
     });
 
@@ -545,7 +543,7 @@ describe('MacOSComputerInterface', () => {
       const lastMessage = receivedMessages[receivedMessages.length - 1];
       expect(lastMessage).toEqual({
         command: 'get_screen_size',
-        params: {},
+        params: {}
       });
     });
 
@@ -557,7 +555,7 @@ describe('MacOSComputerInterface', () => {
       const lastMessage = receivedMessages[receivedMessages.length - 1];
       expect(lastMessage).toEqual({
         command: 'get_cursor_position',
-        params: {},
+        params: {}
       });
     });
   });
@@ -590,7 +588,7 @@ describe('MacOSComputerInterface', () => {
       const lastMessage = receivedMessages[receivedMessages.length - 1];
       expect(lastMessage).toEqual({
         command: 'copy_to_clipboard',
-        params: {},
+        params: {}
       });
     });
 
@@ -601,8 +599,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'set_clipboard',
         params: {
-          text: 'new clipboard text',
-        },
+          text: 'new clipboard text'
+        }
       });
     });
   });
@@ -636,8 +634,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'file_exists',
         params: {
-          path: '/path/to/file',
-        },
+          path: '/path/to/file'
+        }
       });
     });
 
@@ -650,8 +648,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'directory_exists',
         params: {
-          path: '/path/to/dir',
-        },
+          path: '/path/to/dir'
+        }
       });
     });
 
@@ -664,8 +662,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'list_dir',
         params: {
-          path: '/path/to/dir',
-        },
+          path: '/path/to/dir'
+        }
       });
     });
 
@@ -678,8 +676,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'read_text',
         params: {
-          path: '/path/to/file.txt',
-        },
+          path: '/path/to/file.txt'
+        }
       });
     });
 
@@ -691,8 +689,8 @@ describe('MacOSComputerInterface', () => {
         command: 'write_text',
         params: {
           path: '/path/to/file.txt',
-          content: 'new content',
-        },
+          content: 'new content'
+        }
       });
     });
 
@@ -706,8 +704,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'read_bytes',
         params: {
-          path: '/path/to/file.bin',
-        },
+          path: '/path/to/file.bin'
+        }
       });
     });
 
@@ -720,8 +718,8 @@ describe('MacOSComputerInterface', () => {
         command: 'write_bytes',
         params: {
           path: '/path/to/file.bin',
-          content_b64: buffer.toString('base64'),
-        },
+          content_b64: buffer.toString('base64')
+        }
       });
     });
 
@@ -732,8 +730,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'delete_file',
         params: {
-          path: '/path/to/file',
-        },
+          path: '/path/to/file'
+        }
       });
     });
 
@@ -744,8 +742,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'create_dir',
         params: {
-          path: '/path/to/new/dir',
-        },
+          path: '/path/to/new/dir'
+        }
       });
     });
 
@@ -756,8 +754,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'delete_dir',
         params: {
-          path: '/path/to/dir',
-        },
+          path: '/path/to/dir'
+        }
       });
     });
 
@@ -771,8 +769,8 @@ describe('MacOSComputerInterface', () => {
       expect(lastMessage).toEqual({
         command: 'run_command',
         params: {
-          command: 'ls -la',
-        },
+          command: 'ls -la'
+        }
       });
     });
   });
@@ -805,13 +803,13 @@ describe('MacOSComputerInterface', () => {
         title: 'Test Window',
         bounds: { x: 0, y: 0, width: 1920, height: 1080 },
         children: [],
-        success: true,
+        success: true
       });
 
       const lastMessage = receivedMessages[receivedMessages.length - 1];
       expect(lastMessage).toEqual({
         command: 'get_accessibility_tree',
-        params: {},
+        params: {}
       });
     });
 
@@ -826,8 +824,8 @@ describe('MacOSComputerInterface', () => {
         command: 'to_screen_coordinates',
         params: {
           x: 100,
-          y: 200,
-        },
+          y: 200
+        }
       });
     });
 
@@ -842,8 +840,8 @@ describe('MacOSComputerInterface', () => {
         command: 'to_screenshot_coordinates',
         params: {
           x: 300,
-          y: 400,
-        },
+          y: 400
+        }
       });
     });
   });
@@ -885,9 +883,7 @@ describe('MacOSComputerInterface', () => {
       await macosInterface.connect();
 
       // Command should throw error
-      await expect(macosInterface.leftClick(100, 100)).rejects.toThrow(
-        'Command failed'
-      );
+      await expect(macosInterface.leftClick(100, 100)).rejects.toThrow('Command failed');
 
       await macosInterface.disconnect();
       await new Promise<void>((resolve) => {

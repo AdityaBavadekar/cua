@@ -17,36 +17,36 @@ These packages are part of a uv workspace which manages a shared virtual environ
 
 1. Install Lume CLI:
 
-    ```bash
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/trycua/cua/main/libs/lume/scripts/install.sh)"
-    ```
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/trycua/cua/main/libs/lume/scripts/install.sh)"
+   ```
 
 2. Clone the repository:
 
-    ```bash
-    git clone https://github.com/trycua/cua.git
-    cd cua
-    ```
+   ```bash
+   git clone https://github.com/trycua/cua.git
+   cd cua
+   ```
 
 3. Create a `.env.local` file in the root directory with your API keys:
 
-    ```bash
-    # Required for Anthropic provider
-    ANTHROPIC_API_KEY=your_anthropic_key_here
+   ```bash
+   # Required for Anthropic provider
+   ANTHROPIC_API_KEY=your_anthropic_key_here
 
-    # Required for OpenAI provider
-    OPENAI_API_KEY=your_openai_key_here
-    ```
+   # Required for OpenAI provider
+   OPENAI_API_KEY=your_openai_key_here
+   ```
 
 4. Open the workspace in VSCode or Cursor:
 
-    ```bash
-    # For Cua Python development
-    code .vscode/py.code-workspace
+   ```bash
+   # For Cua Python development
+   code .vscode/py.code-workspace
 
-    # For Lume (Swift) development
-    code .vscode/lume.code-workspace
-    ```
+   # For Lume (Swift) development
+   code .vscode/lume.code-workspace
+   ```
 
 Using the workspace file is strongly recommended as it:
 

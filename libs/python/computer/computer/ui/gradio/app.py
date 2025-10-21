@@ -19,11 +19,12 @@ from datetime import datetime
 import datasets
 import gradio as gr
 import pandas as pd
-from computer import Computer, VMProviderType
 from datasets import Dataset, Features, Sequence, concatenate_datasets
 from gradio.components import ChatMessage
 from huggingface_hub import DatasetCard, DatasetCardData
 from PIL import Image
+
+from computer import Computer, VMProviderType
 
 # Task examples as dictionaries with task string and setup function
 TASK_EXAMPLES = [
