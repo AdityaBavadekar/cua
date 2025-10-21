@@ -38,7 +38,7 @@ repos:
       - id: ruff
         name: ruff linter
         language_version: python3.11
-        args: ['--fix', '--ignore', 'E501,E402'] # Ignore line length and module level import not at top of file
+        args: ['--fix', '--ignore', 'E501,E402,I001,I002'] # Ignore line length, module level import not at top of file, and import sorting issues
         files: \.(py)$
 
   - repo: https://github.com/pre-commit/mirrors-mypy

@@ -118,7 +118,7 @@ class BoxAnnotator:
         for detection in detections:
             box = detection["bbox"]
             x1, y1, x2, y2 = [
-                int(coord * dim) for coord, dim in zip(box, [image.width, image.height] * 2)
+                int(coord * dim) for coord, dim in zip(box, [image.width, image.height] * 2, strict=False)
             ]
             used_areas.append((x1, y1, x2, y2))
 
@@ -127,7 +127,7 @@ class BoxAnnotator:
             # Get box coordinates
             box = detection["bbox"]
             x1, y1, x2, y2 = [
-                int(coord * dim) for coord, dim in zip(box, [image.width, image.height] * 2)
+                int(coord * dim) for coord, dim in zip(box, [image.width, image.height] * 2, strict=False)
             ]
 
             # Get color for this detection

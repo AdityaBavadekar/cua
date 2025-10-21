@@ -138,7 +138,7 @@ Output the coordinate pair exactly:
             )
             generated_ids = [
                 output_ids[len(input_ids) :]
-                for input_ids, output_ids in zip(inputs.input_ids, output_ids)
+                for input_ids, output_ids in zip(inputs.input_ids, output_ids, strict=False)
             ]
             output_text = self.processor.batch_decode(
                 generated_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True

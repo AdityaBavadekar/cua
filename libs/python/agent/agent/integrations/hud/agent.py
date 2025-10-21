@@ -265,7 +265,7 @@ class MCPComputerAgent(MCPAgent):
         """
         messages = []
 
-        for call, result in zip(tool_calls, tool_results):
+        for call, result in zip(tool_calls, tool_results, strict=False):
             if call.id not in self.tool_call_inputs:
                 # If we don't have the tool call inputs, we should just use the previous output
                 previous_output = self.previous_output.copy() or []

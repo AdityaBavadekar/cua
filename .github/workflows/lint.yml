@@ -39,7 +39,7 @@ jobs:
         run: |
           uv run isort --check-only .
           uv run black --check .
-          uv run ruff check --ignore E501,E402 .
+          uv run ruff check --ignore E501,E402,I001,I002 .
           uv run mypy .
 
       # TypeScript type check

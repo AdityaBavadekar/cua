@@ -201,7 +201,7 @@ class DetectionProcessor:
                     if hasattr(coords, "cpu"):
                         coords = coords.cpu()
 
-                    for conf, bbox in zip(confidences, coords):
+                    for conf, bbox in zip(confidences, coords, strict=False):
                         # Normalize coordinates
                         x1, y1, x2, y2 = bbox.tolist()
                         norm_bbox = [
