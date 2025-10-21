@@ -14,6 +14,8 @@ from typing import Any, Dict, List, Optional
 
 from agent.agent import ComputerAgent as BaseComputerAgent
 from agent.callbacks import PromptInstructionsCallback
+from hud.agents import OperatorAgent
+from hud.tools.computer.settings import computer_settings
 
 # OpenAI Responses typed models (required)
 from openai.types.responses import (
@@ -27,9 +29,6 @@ from openai.types.responses import (
     ResponseUsage,
 )
 from PIL import Image
-
-from hud.agents import OperatorAgent
-from hud.tools.computer.settings import computer_settings
 
 
 def _map_agent_output_to_openai_blocks(
